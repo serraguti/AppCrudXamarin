@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCrudXamarin.Views.DepartamentoNewView"
+             xmlns:local="clr-namespace:AppCrudXamarin"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}
+    , Path=DepartamentoNewViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Id departamento"/>
+            <Entry Placeholder="Id departamento"
+                   Text="{Binding Departamento.IdDepartamento}"/>
+            <Label Text="Nombre"/>
+            <Entry Placeholder="Nombre" Text="{Binding Departamento.Nombre}"/>
+            <Label Text="Localidad"/>
+            <Entry Placeholder="Localidad" Text="{Binding Departamento.Localidad}"/>
+            <Button Text="Insertar"
+                    Command="{Binding InsertarDepartamento}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

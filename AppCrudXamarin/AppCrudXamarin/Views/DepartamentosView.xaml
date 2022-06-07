@@ -25,6 +25,9 @@
 Command="{Binding BindingContext.ShowDetails
 , Source={x:Reference PageDepartamentosView}}"
 CommandParameter="{Binding .}"/>
+<Button Text="New" TextColor="Blue"
+Command="{Binding BindingContext.ShowInsertar
+, Source={x:Reference PageDepartamentosView}}"/>                                
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

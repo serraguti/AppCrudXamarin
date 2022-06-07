@@ -24,6 +24,7 @@ namespace AppCrudXamarin.Services
             //VIEWMODELS
             builder.RegisterType<DepartamentosListViewModel>();
             builder.RegisterType<DepartamentoViewModel>();
+            builder.RegisterType<DepartamentoNewViewModel>();
             string resourceName = "AppCrudXamarin.appsettings.json";
             Stream stream =
                 GetType().GetTypeInfo().Assembly
@@ -33,6 +34,14 @@ namespace AppCrudXamarin.Services
                 .Build();
             builder.Register<IConfiguration>(z => configuration);
             this.container = builder.Build();
+        }
+
+        public DepartamentoNewViewModel DepartamentoNewViewModel
+        {
+            get
+            {
+                return this.container.Resolve<DepartamentoNewViewModel>();
+            }
         }
 
         public DepartamentoViewModel DepartamentoViewModel

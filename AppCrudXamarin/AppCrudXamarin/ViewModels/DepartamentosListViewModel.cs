@@ -22,6 +22,11 @@ namespace AppCrudXamarin.ViewModels
             {
                 await this.LoadDepartamentosAsync();
             });
+            MessagingCenter.Subscribe<DepartamentosListViewModel>
+                (this, "RELOAD", async (sender) =>
+                {
+                    await this.LoadDepartamentosAsync();
+                });
         }
 
         private async Task LoadDepartamentosAsync()
@@ -84,7 +89,24 @@ namespace AppCrudXamarin.ViewModels
             {
                 return new Command(async (id) =>
                 {
+                    int idDept = (int)id;
+                    await this.service.DeleteDepartamento(idDept);
+                    await this.LoadDepartamentosAsync();
+                });
+            }
+        }
 
+        public Command ShowInsertar
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    DepartamentoNewView view =
+                    new DepartamentoNewView();
+                    await
+                    Application.Current.MainPage.Navigation
+                    .PushModalAsync(view);
                 });
             }
         }

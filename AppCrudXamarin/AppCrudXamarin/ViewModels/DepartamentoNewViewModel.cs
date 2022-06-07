@@ -8,13 +8,13 @@ using Xamarin.Forms;
 
 namespace AppCrudXamarin.ViewModels
 {
-    public class DepartamentoViewModel: ViewModelBase
+    public class DepartamentoNewViewModel: ViewModelBase
     {
         private ServiceApiDepartamentos service;
-
-        public DepartamentoViewModel(ServiceApiDepartamentos service)
+        public DepartamentoNewViewModel(ServiceApiDepartamentos service)
         {
             this.service = service;
+            this.Departamento = new Departamento();
         }
 
         private Departamento _Departamento;
@@ -28,18 +28,18 @@ namespace AppCrudXamarin.ViewModels
             }
         }
 
-        public Command DeleteDepartamento
+        public Command InsertarDepartamento
         {
-            get
+           get
             {
                 return new Command(async () =>
                 {
-                    await this.service.DeleteDepartamento
-                    (this.Departamento.IdDepartamento);
+                    await this.service.InsertDepartamento
+                    (this.Departamento.Nombre, this.Departamento.Localidad);
                     MessagingCenter.Send<DepartamentosListViewModel>
                     (App.ServiceLocator.DepartamentosListViewModel, "RELOAD");
                     await Application.Current.MainPage
-                    .Navigation.PopModalAsync();
+                    .DisplayAlert("Alert", "Insertado", "Ok");
                 });
             }
         }
