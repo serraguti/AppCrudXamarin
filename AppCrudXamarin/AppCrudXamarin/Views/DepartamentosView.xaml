@@ -17,22 +17,29 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label TextColor="Blue"
-                                       FontSize="25"
-                                       Text="{Binding Nombre}"/>
-                                <Button Text="Details"
-Command="{Binding BindingContext.ShowDetails
-, Source={x:Reference PageDepartamentosView}}"
-CommandParameter="{Binding .}"/>
-<Button Text="New" TextColor="Blue"
-Command="{Binding BindingContext.ShowInsertar
-, Source={x:Reference PageDepartamentosView}}"/>
-<Button Text="Delete" TextColor="Red"
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Delete"
+IconImageSource="trash.png" BackgroundColor="Red"
 Command="{Binding BindingContext.DeleteDepartamento
 , Source={x:Reference PageDepartamentosView}}"
-CommandParameter="{Binding IdDepartamento}"/>
-                            </StackLayout>
+CommandParameter="{Binding IdDepartamento}">
+                                        </SwipeItem>
+                                        <SwipeItem Text="Details"
+IconImageSource="groot.png"                                                   
+Command="{Binding BindingContext.ShowDetails
+, Source={x:Reference PageDepartamentosView}}"
+CommandParameter="{Binding .}">
+                                        </SwipeItem>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="Blue"
+                                       FontSize="25"
+                                       Text="{Binding Nombre}"/>
+                                </StackLayout>
+                            </SwipeView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
