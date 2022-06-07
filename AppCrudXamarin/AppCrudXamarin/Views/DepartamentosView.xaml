@@ -27,7 +27,11 @@ Command="{Binding BindingContext.ShowDetails
 CommandParameter="{Binding .}"/>
 <Button Text="New" TextColor="Blue"
 Command="{Binding BindingContext.ShowInsertar
-, Source={x:Reference PageDepartamentosView}}"/>                                
+, Source={x:Reference PageDepartamentosView}}"/>
+<Button Text="Delete" TextColor="Red"
+Command="{Binding BindingContext.DeleteDepartamento
+, Source={x:Reference PageDepartamentosView}}"
+CommandParameter="{Binding IdDepartamento}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
