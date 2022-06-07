@@ -1,6 +1,7 @@
 ﻿using AppCrudXamarin.Base;
 using AppCrudXamarin.Models;
 using AppCrudXamarin.Services;
+using AppCrudXamarin.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -61,7 +62,18 @@ namespace AppCrudXamarin.ViewModels
             {
                 return new Command(async (departamento) =>
                 {
-
+                    Departamento dept = departamento as Departamento;
+                    DepartamentoView view = new DepartamentoView();
+                    //RECUPERAMOS NUESTRO VIEWMODEL
+                    DepartamentoViewModel viewmodel =
+                    App.ServiceLocator.DepartamentoViewModel;
+                    //INDICAMOS EL OBJETO A ENLAZAR EN VIEWMODEL
+                    viewmodel.Departamento = dept;
+                    //ENLAZAMOS LA VISTA CON SU VIEWMODEL
+                    view.BindingContext = viewmodel;
+                    await
+                    Application.Current.MainPage
+                    .Navigation.PushModalAsync(view);
                 });
             }
         }

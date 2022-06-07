@@ -21,6 +21,10 @@
                                 <Label TextColor="Blue"
                                        FontSize="25"
                                        Text="{Binding Nombre}"/>
+                                <Button Text="Details"
+Command="{Binding BindingContext.ShowDetails
+, Source={x:Reference PageDepartamentosView}}"
+CommandParameter="{Binding .}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

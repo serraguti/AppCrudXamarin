@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCrudXamarin.Views.DepartamentoView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Details"
+                   FontSize="45"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label FontSize="25" TextColor="Black"
+                   Text="{Binding Departamento.IdDepartamento
+                ,  StringFormat='Id: {0}'}"/>
+            <Label FontSize="25"
+                   TextColor="Blue"
+                   Text="{Binding Departamento.Nombre
+                , StringFormat='Nombre: {0}'}"/>
+            <Label FontSize="25"
+                   TextColor="Blue"
+                   Text="{Binding Departamento.Localidad
+                , StringFormat='Localidad: {0}'}"/>
+            <Button Text="Delete" BackgroundColor="Red"
+                    Command="{Binding DeleteDepartamento}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
