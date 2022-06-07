@@ -22,7 +22,7 @@ namespace AppCrudXamarin
         {
             InitializeComponent();
 
-            MainPage = new DepartamentosView();
+            MainPage = new MainDepartamentosView();
         }
 
         protected override void OnStart()
