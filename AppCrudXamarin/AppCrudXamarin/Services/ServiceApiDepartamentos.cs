@@ -8,6 +8,7 @@ using System.Net.Http;
 using AppCrudXamarin.Models;
 using System.Linq;
 using Newtonsoft.Json;
+using MonkeyCache.FileStore;
 
 namespace AppCrudXamarin.Services
 {
@@ -47,10 +48,27 @@ namespace AppCrudXamarin.Services
 
         public async Task<List<Departamento>> GetDepartamentosAsync()
         {
-            string request = "/api/departamentos";
-            List<Departamento> departamentos =
-                await this.CallApiAsync<List<Departamento>>(request);
-            return departamentos;
+            //PREGUNTAMOS SI TENEMOS CACHE.
+            //LO QUE HAREMOS SERA UNA PRIMERA PETICION Y ALMACENAR
+            //LOS DATOS EN CACHE.
+            //DESPUES DEVOLVEREMOS SIEMPRE LOS DATOS DE CACHE
+            //DURANTE 30 MINUTOS
+            if (Barrel.Current.IsExpired("DEPARTAMENTOS"))
+            {
+                string request = "/api/departamentos";
+                List<Departamento> departamentos =
+                    await this.CallApiAsync<List<Departamento>>(request);
+                //ALMACENAMOS LOS DATOS DENTRO DE CACHE
+                Barrel.Current.Add("DEPARTAMENTOS", departamentos
+                    , TimeSpan.FromMinutes(30));
+                return departamentos;
+            }
+            else
+            {
+                List<Departamento> departamentos =
+                    Barrel.Current.Get<List<Departamento>>("DEPARTAMENTOS");
+                return departamentos;
+            }
         }
 
         public async Task<Departamento> FindDepartamentoAsync(int id)

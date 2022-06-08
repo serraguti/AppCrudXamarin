@@ -26,7 +26,10 @@ new MenuPageItem{
     , TypePage=typeof(DepartamentosView)},
 new MenuPageItem{
     Titulo = "Nuevo departamento", Icono = "abajo.png"
-    , TypePage=typeof(DepartamentoNewView)}
+    , TypePage=typeof(DepartamentoNewView)},
+new MenuPageItem{
+    Titulo = "Collection View", Icono = "groot.png"
+    , TypePage=typeof(DepartamentosCollectView)}
                 };
             this.lsvMenu.ItemsSource = menu;
             Detail =

@@ -67,7 +67,19 @@ namespace AppCrudXamarin.ViewModels
             {
                 return new Command(async (departamento) =>
                 {
-                    Departamento dept = departamento as Departamento;
+                    Departamento dept;
+                    if (departamento == null)
+                    {
+                        //VIENE EL ELEMENTO SELECCIONADO
+                        //VISTA CONTENTVIEW
+                        dept = this.DepartamentoSeleccionado;
+                    }
+                    else
+                    {
+                        //VIENE DE LA VISTA LISTVIEW CON PARAMETRO
+                        dept = departamento as Departamento;
+                    }
+
                     DepartamentoView view = new DepartamentoView();
                     //RECUPERAMOS NUESTRO VIEWMODEL
                     DepartamentoViewModel viewmodel =

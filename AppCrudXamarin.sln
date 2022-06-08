@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCrudXamarin.Android", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCrudXamarin.iOS", "AppCrudXamarin\AppCrudXamarin.iOS\AppCrudXamarin.iOS.csproj", "{AAF8AE74-1732-4A07-B319-C066FD05FACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCrudXamarin", "AppCrudXamarin\AppCrudXamarin\AppCrudXamarin.csproj", "{3D802CFC-0C50-46EE-804A-28C0B4B97239}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCrudXamarin", "AppCrudXamarin\AppCrudXamarin\AppCrudXamarin.csproj", "{3D802CFC-0C50-46EE-804A-28C0B4B97239}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

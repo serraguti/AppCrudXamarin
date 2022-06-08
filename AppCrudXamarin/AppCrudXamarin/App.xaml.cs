@@ -1,5 +1,6 @@
 ﻿using AppCrudXamarin.Services;
 using AppCrudXamarin.Views;
+using MonkeyCache.FileStore;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,7 +22,7 @@ namespace AppCrudXamarin
         public App()
         {
             InitializeComponent();
-
+            Barrel.ApplicationId = "com.AppCrudXamarin";
             MainPage = new MainDepartamentosView();
         }
 
