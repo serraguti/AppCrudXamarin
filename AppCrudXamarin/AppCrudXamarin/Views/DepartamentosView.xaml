@@ -17,6 +17,18 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Details"
+IconImageSource="arriba.png"
+Command="{Binding BindingContext.ShowDetails
+, Source={x:Reference PageDepartamentosView}}"
+CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Delete"
+                                          IconImageSource="trash.png"
+Command="{Binding BindingContext.DeleteDepartamento
+, Source={x:Reference PageDepartamentosView}}"
+CommandParameter="{Binding IdDepartamento}"/>
+                            </ViewCell.ContextActions>
                             <SwipeView>
                                 <SwipeView.LeftItems>
                                     <SwipeItems>
@@ -27,7 +39,7 @@ Command="{Binding BindingContext.DeleteDepartamento
 CommandParameter="{Binding IdDepartamento}">
                                         </SwipeItem>
                                         <SwipeItem Text="Details"
-IconImageSource="groot.png"                                                   
+IconImageSource="logospidey.png"                                                   
 Command="{Binding BindingContext.ShowDetails
 , Source={x:Reference PageDepartamentosView}}"
 CommandParameter="{Binding .}">
